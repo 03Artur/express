@@ -1,21 +1,17 @@
 const express = require('express');
 const router = require('./router');
 const app = express();
-const port = 3000;
-
+const port = process.env.PORT || 3000;
+const errorSendler=require('./utils/errorHandler/index');
 require('./db/mongoose');
 
 app.use(express.json());
 
 app.use(router);
 
-app.use((err, req, res, next) => {
-
-    res.send(err.message);
+app.use(
 
 });
 
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}!`);
-});
+app.listen(port);
