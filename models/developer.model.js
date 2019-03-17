@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const {ADMIN,MODERATOR,USER}=require('../utils/constants');
+const roles=require('../utils/constants');
 
 
 const Schema = new mongoose.Schema({
     role: {
-        type: [{type: [String], enum: [ADMIN,MODERATOR,USER], required: true}],
+        type: [{type: [String], enum: [...roles], required: true}],
         default: [USER]
     },
     firstName: {
